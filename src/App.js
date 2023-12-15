@@ -5,11 +5,13 @@
  * @format
  */
 
-import React from 'react';
-import {Text} from 'react-native';
+import React, {useRef} from 'react';
+import {Text, View} from 'react-native';
+
+import Initial from './screens/Initial';
 
 function App(): React.JSX.Element {
-  return <Text>Hi</Text>;
+  return <Initial />;
 }
 
 export default App;
