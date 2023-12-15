@@ -67,7 +67,7 @@ export default function Root({route}) {
           component={t.component}
           options={{
             tabBarLabel: t.name,
-            tabBarIcon: props => <Icon {...props} name={t.name} />, // eslint-disable-line react/no-unstable-nested-components
+            tabBarIcon: props => <Icon {...props} name={t.iconName} />, // eslint-disable-line react/no-unstable-nested-components
           }}
         />
       ))}

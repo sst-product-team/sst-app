@@ -24,10 +24,12 @@ const Initial = () => {
               {
                 name: 'Dashboard',
                 component: Dashboard,
+                iconName: 'home',
               },
               {
-                name: 'AllApps',
+                name: 'Apps',
                 component: AllApps,
+                iconName: 'apps',
               },
             ],
           }}
