@@ -2,16 +2,22 @@ name: Lint and Format Check
 
 on:
   pull_request:
+    paths:
+      - '**/*.js'
+      - '**/*.jsx'
+      - '**/*.ts'
+      - '**/*.tsx'
     branches:
       - main
   push:
+    paths:
+      - '**/*.js'
+      - '**/*.jsx'
+      - '**/*.ts'
+      - '**/*.tsx'
     branches:
       - main
   workflow_dispatch:
-    inputs:
-      target_branch:
-        description: 'Target branch to run the workflow on'
-        required: true
 
 jobs:
   lint_and_format:
@@ -19,8 +25,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.inputs.target_branch }}
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
