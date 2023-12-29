@@ -29,11 +29,16 @@ jobs:
         run: |
           yarn install
 
-      - name: Build Android release
+      - name: Inject secret values
         run: |
           echo "" >> .env
           echo "APP_VERSION=${{ github.event.inputs.APP_VERSION }}" >> .env
+          
+          sed -i "s/{Your Deployment Key}/${{ secrets.CODE_PUSH_DEPLOYMENT_KEY }}/" "./android/app/src/main/res/values/strings.xml"
+          sed -i "s/{Your app secret here}/${{ secrets.CODE_PUSH_APP_SECRET }}/" "./android/app/src/main/assets/appcenter-config.json"
 
+      - name: Build Android release
+        run: |
           cd android
           ./gradlew assembleRelease
 
